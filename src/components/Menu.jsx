@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { MenuLink } from "./Children";
+import { HashLink } from "react-router-hash-link";//Funciona igual que <Link> de React Router. Interpreta los # (hash) y te lleva hasta el elemento con ese id dentro de la página.
 
 //Componente Menú de navegación
 export function Menu() {
@@ -29,7 +30,7 @@ export function Menu() {
                     <MenuLink to="/">El Hotel</MenuLink>
                     <MenuLink to="/habitaciones">Habitaciones</MenuLink>
                     <MenuLink to="/promociones">Promociones</MenuLink>
-                    <MenuLink to="/#servicios">Servicios</MenuLink>
+                    <MenuLink><HashLink smooth to="/#servicios">Servicios</HashLink></MenuLink>
                     <MenuLink to="/ubicacion">Ubicación</MenuLink>
                     <MenuLink to="/contacto">Contacto</MenuLink>
                 </ul>
@@ -75,7 +76,7 @@ export function Menu() {
                             <MenuLink to="/">El Hotel</MenuLink>
                             <MenuLink to="/habitaciones">Habitaciones</MenuLink>
                             <MenuLink to="/promociones">Promociones</MenuLink>
-                            <MenuLink to="/#servicios">Servicios</MenuLink>
+                            <MenuLink><HashLink smooth to="/#servicios">Servicios</HashLink></MenuLink>
                             <MenuLink to="/ubicacion">Ubicación</MenuLink>
                             <MenuLink to="/contacto">Contacto</MenuLink>
                         </ul>

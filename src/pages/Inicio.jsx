@@ -60,7 +60,7 @@ export function Inicio() {
         {/*BOTÓN VER MÁS*/}
             <div id="vermas">
               <Link to="/vermas" className="bg-[#d8b25e] text-[#3f2c0e] font-bold  px-3 py-2 rounded-full hover:bg-[#3f2c0e] 
-              hover:text-[#fcf8ef] transition-colors duration-300 text-lg sm:text-[20px] lg:text-[20px] ">Ver Más</Link>
+              hover:text-[#fcf8ef] transition-colors duration-300 text-2x sm:text-sm lg:text-lg font-[Montserrat]">Ver Más</Link>
             </div>
           </div>
 
@@ -73,7 +73,7 @@ export function Inicio() {
         </section>
 
         {/*SERVICIOS*/}
-        <section className="bg-[#fcf8ef] p-10 sm:p-20 mt-5 mb-24 max-w-[1200px] mx-auto font-[Montserrat]">
+        <section  id="servicios" className="bg-[#fcf8ef] p-10 sm:p-20 mt-5 mb-24 max-w-[1200px] mx-auto font-[Montserrat]">
           <h3 className="text-[25px] sm:text-[25px] lg:text-[28px] font-bold mb-8 text-center">Nuestros Servicios</h3>
           <div className="servicios-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
             <div className="columna1 mr-5 mt-4 ">
@@ -86,7 +86,7 @@ export function Inicio() {
                 descripcion="Para garantizar la máxima comodidad y tranquilidad durante su estadía."
                 icon="bx-car" />
             </div>
-            <div className="columna2 mr-8 mt-4">
+            <div className="columna2 mr-5 mt-4 ">
               <Servicios nombre="Wi-Fi"
                 descripcion="Conéctate sin límites y disfruta de una estadía siempre conectada."
                 icon="bx-wifi" />
