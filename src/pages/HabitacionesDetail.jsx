@@ -54,7 +54,7 @@ export function HabitacionDetail() {
     // Si la habitación existe, muestro toda su información
     return (
         <section className="max-w-4xl mx-auto px-4 py-10 font-[Glory] ">
-            <h1 className="text-4xl font-bold mb-10 mt-8 text-center">{habitacion.nombre}</h1>
+            <h1 className=" text-3xl sm:text-3xl lg:text-4xl font-bold mb-10 mt-8 text-center">{habitacion.nombre}</h1>
             <img
                 src={habitacion.imagen}
                 alt={habitacion.nombre}
@@ -63,12 +63,12 @@ export function HabitacionDetail() {
 
             <div className="mb-4">
                 <h4 className="font-bold text-[25px] ">Capacidad</h4>
-                <p className="mb-3  text-[20px] mt-3">Hasta {habitacion.capacidad} personas</p>
+                <p className="mb-3  text-[18px] mt-3">Hasta {habitacion.capacidad} personas</p>
             </div>
 
             <div className="mb-4">
                 <h4 className="font-bold  text-[25px] mb-3">Precio</h4>
-                <p className="mb-3  text-[20px] mt-3">${habitacion.precio} por noche</p>
+                <p className="mb-3  text-[18px] mt-3">${habitacion.precio} por noche</p>
             </div>
 
             <div className="mb-6">
