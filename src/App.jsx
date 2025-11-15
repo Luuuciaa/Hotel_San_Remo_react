@@ -12,8 +12,16 @@ import { Ubicacion } from "./pages/Ubicacion.jsx";
 import { Contacto } from "./pages/Contacto.jsx";
 import { Vermas } from "./components/Vermas";
 import { Reservar } from "./components/Reservar.jsx";
+
+//Para páginas inexistentes
 import { NotFound } from "./components/NotFound.jsx";
 
+//Para rutas protegidas
+import { ProtectedRoute } from "./components/ProtectedRoute.jsx";
+//Inicio de sesión
+import Login from "./pages/Login.jsx";
+
+import {HabitacionAdmin} from "./pages/HabitacionAdmin.jsx";
 
 
 
@@ -25,15 +33,28 @@ export function App() {
         {/*RUTAS ANIDADAS*/}
         <Routes>
           <Route index="/" element={<Inicio />} /> {/*RUTA RAÍS DE LA PÁGINA PRINCIPAL*/}
-          <Route path="/habitaciones" element={<Habitaciones />} />
-          <Route path="/habitaciones/:habitacionId" element={<HabitacionDetail />} ></Route>{/*RUTA DINÁMICA PARA QUE MUESTRE LAS HABITACIONES POR ID*/}
+          <Route
+            path="/habitaciones"
+            element={
+                <Habitaciones />
+            }
+          />
+          {/*RUTA DINÁMICA PARA QUE MUESTRE LAS HABITACIONES POR ID*/}
+          <Route
+            path="/habitaciones/:habitacionId"
+            element={
+                <HabitacionDetail />
+            }
+          />
           <Route path="/promociones" element={<Promociones />} />
           <Route path="/servicios" element={<Servicios />} />
           <Route path="/ubicacion" element={<Ubicacion />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/vermas" element={<Vermas />} />
           <Route path="/reservar" element={<Reservar />}></Route>
-          {/* Ruta comodín para manejar páginas inexistentes */}
+            <Route path="/admin/habitaciones"element={<ProtectedRoute><HabitacionAdmin></HabitacionAdmin></ProtectedRoute>}></Route> {/*PARA RUTAS PRIVADAS*/}
+            <Route path="/login" element={<Login></Login>}></Route>
+          {/* Ruta  para manejar páginas inexistentes 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

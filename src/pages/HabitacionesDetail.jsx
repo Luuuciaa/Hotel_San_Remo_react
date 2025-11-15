@@ -1,15 +1,17 @@
 
-
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { habitaciones } from "../data/habitaciones";
 import { ButtonReservar } from "../components/ButtonReservar";
+import { useHabitaciones } from "../hooks/useHabitaciones"; // importamos el hook
+
 
 export function HabitacionDetail() {
     // Obtengo el parámetro 'habitacionId' de la URL
     const { habitacionId } = useParams();
     const navigate = useNavigate();
-
+    // Usamos el hook para obtener las habitaciones desde la API
+    const { data: habitaciones, loading, error } = useHabitaciones();
     // Filtro del array de habitaciones por el ID del parámetro
     // Busco la habitación correspondiente en el array por ID
     const habitacion = habitaciones.find((h) => h.id === parseInt(habitacionId));
@@ -32,8 +34,13 @@ export function HabitacionDetail() {
         // El efecto se ejecuta cada vez que cambia la variable 'habitacion'
     }, [habitacion]);
 
+    // Si los datos todavía se están cargando, mostramos un mensaje
+    if (loading) return <p>Cargando habitaciones...</p>;
 
-    // Si no se encuentra la habitación, muestro mensaje y botón de volver
+    // Si hubo un error al cargar los datos, lo mostramos
+    if (error) return <p>Error al cargar habitaciones: {error.message || error}</p>;
+
+    // Si no hay error y los datos están cargados, renderizamos 
     if (!habitacion) {
         return (
             <section className="min-h-screen flex items-center justify-center px-4">
@@ -71,17 +78,29 @@ export function HabitacionDetail() {
                 <p className="mb-3  text-[18px] mt-3">${habitacion.precio} por noche</p>
             </div>
 
+
             <div className="mb-6">
                 <h4 className="font-bold text-[25px] mb-3">Servicios</h4>
-                <ul className="list-disc ml-5 text-lg">
-                    {habitacion.servicios.map((serv, index) => (
-                        <li key={index} className="flex items-center ">
-                            <i className="bx bx-check mr-2 "></i> {/* icono */}
-                            {serv}
-                        </li>
-                    ))}
-                </ul>
+                {/* Verificamos si existe la descripción de la habitación */}
+                {habitacion.descripcion ? (
+                    <ul className="list-disc ml-5 text-lg">
+                         {/* Convertimos el string de servicios en un array y recorremos cada servicio */}
+                        {habitacion.descripcion.split(", ").map((serv, index) => (
+                            <li key={index} className="flex items-center">
+                                 {/* Icono de check para cada servicio */}
+                                <i className="bx bx-check mr-2"></i>
+                                 {/* Mostramos el nombre del servicio */}
+                                {serv}
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                     // Si no hay servicios disponibles, mostramos un mensaje alternativo
+                    <p>No hay servicios disponibles</p>
+                )}
             </div>
+
+
 
             {/* Botón Reservar */}
             <ButtonReservar texto="Reservar"

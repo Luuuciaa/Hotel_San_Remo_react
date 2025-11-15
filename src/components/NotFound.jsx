@@ -7,8 +7,8 @@ export function NotFound() {
         <main>
             <Seccion titulo="PÁGINA NO ENCONTRADA ">
                 <div className="flex flex-col items-center justify-center py-10">
-                    <h1 className="text-4xl font-bold text-[#3f2c0e] mb-6">404</h1>
-                    <p className="text-[20px] sm mb-15">Lo sentimos, la página que buscas no existe</p>
+                    <h1 className="text-3xl sm:text-3xl md:text-4xl font-bold text-[#3f2c0e] mb-6">404</h1>
+                    <p className="text-[18px]  mb-15  sm:text-[18px] md:text-[20px]">Lo sentimos, la página que buscas no existe</p>
 
                     <Link
                         to="/"

@@ -13,7 +13,7 @@ export function Reservar() {
         email: "",
         telefono: "",
         cantidadpersonas: "",
-        mensaje: "",        // <--- para el select
+        mensaje: "",        
         fechaEntrada: "",
         fechaSalida: "",
 
@@ -112,7 +112,7 @@ export function Reservar() {
             email: "",
             telefono: "",
             cantidadpersonas: "",
-            mensaje: "",        // <--- para el select
+            mensaje: "",       
             fechaEntrada: "",
             fechaSalida: "",
 

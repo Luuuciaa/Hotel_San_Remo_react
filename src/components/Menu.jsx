@@ -2,17 +2,23 @@
 import { useState } from "react";
 import { MenuLink } from "./Children";
 import { HashLink } from "react-router-hash-link";//Funciona igual que <Link> de React Router. Interpreta los # (hash) y te lleva hasta el elemento con ese id dentro de la página.
+import { useAuth } from "../contexts/AuthContext";
+
 
 //Componente Menú de navegación
 export function Menu() {
     // Estado para controlar si el menú móvil está abierto o cerrado
     const [isOpen, setIsOpen] = useState(false);
+    const { isAuthenticated, logout } = useAuth();
 
+
+    // Función que cambia el estado de isOpen para abrir/cerrar el menú móvil
     function handleClick() {
         setIsOpen(!isOpen);
     }
     // Para mostrar/ocultar el menú móvil con transición
     const classIsOpen = isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0";
+
 
     return (
         <header>
@@ -27,13 +33,46 @@ export function Menu() {
 
                 {/* Links de escritorio */}
                 <ul className="hidden md:flex ml-auto space-x-6">
-                    <MenuLink to="/">El Hotel</MenuLink>
-                    <MenuLink to="/habitaciones">Habitaciones</MenuLink>
-                    <MenuLink to="/promociones">Promociones</MenuLink>
-                    <MenuLink><HashLink smooth to="/#servicios">Servicios</HashLink></MenuLink>
-                    <MenuLink to="/ubicacion">Ubicación</MenuLink>
-                    <MenuLink to="/contacto">Contacto</MenuLink>
+
+                    <li>
+                        <MenuLink to="/">El Hotel</MenuLink>
+                    </li>
+                    <li>
+                        <MenuLink to="/habitaciones">Habitaciones</MenuLink>
+                    </li>
+                    <li>
+                        <MenuLink to="/promociones">Promociones</MenuLink>
+                    </li>
+                    <li>
+                        <MenuLink><HashLink smooth to="/#servicios">Servicios</HashLink></MenuLink>
+                    </li>
+                    <li>
+                        <MenuLink to="/ubicacion">Ubicación</MenuLink>
+                    </li>
+                    <li>
+                        <MenuLink to="/contacto">Contacto</MenuLink>
+                    </li>
+                    {/* Solo mostrar Admin si está autenticado */}
+                    {isAuthenticated && (
+                        <li>
+                            <MenuLink to="/admin/habitaciones">Admin</MenuLink>
+                        </li>
+                    )}
+
+                    <li>
+                        {/*Mostrar logout  si está autenticado y sino login */}
+                        {
+                            isAuthenticated ? (
+                                <MenuLink><button onClick={logout}>Logout</button></MenuLink>
+                            ) :
+                                (
+                                    <MenuLink to="/login">Login</MenuLink>
+                                )
+                        }
+
+                    </li>
                 </ul>
+
 
                 {/* Botón menú de hamburguesa */}
                 <button
@@ -73,12 +112,42 @@ export function Menu() {
                 >
                     <nav>
                         <ul className="flex flex-col gap-5 mt-3 mb-2">
-                            <MenuLink to="/">El Hotel</MenuLink>
-                            <MenuLink to="/habitaciones">Habitaciones</MenuLink>
-                            <MenuLink to="/promociones">Promociones</MenuLink>
-                            <MenuLink><HashLink smooth to="/#servicios">Servicios</HashLink></MenuLink>
-                            <MenuLink to="/ubicacion">Ubicación</MenuLink>
-                            <MenuLink to="/contacto">Contacto</MenuLink>
+                            <li>
+                                <MenuLink to="/">El Hotel</MenuLink>
+                            </li>
+                            <li>
+                                <MenuLink to="/habitaciones">Habitaciones</MenuLink>
+                            </li>
+                            <li>
+                                <MenuLink to="/promociones">Promociones</MenuLink>
+                            </li>
+                            <li>
+                                <MenuLink><HashLink smooth to="/#servicios">Servicios</HashLink></MenuLink>
+                            </li>
+                            <li>
+                                <MenuLink to="/ubicacion">Ubicación</MenuLink>
+                            </li>
+                            <li>
+                                <MenuLink to="/contacto">Contacto</MenuLink>
+                            </li>
+                            {/* Solo mostrar Admin si está autenticado */}
+                            {isAuthenticated && (
+                                <li>
+                                    <MenuLink to="/admin/habitaciones">Admin</MenuLink>
+                                </li>
+                            )}
+                            <li>
+                                {/*Mostrar logout  si está autenticado y sino login */}
+                                {
+                                    isAuthenticated ? (
+                                        <MenuLink><button onClick={logout}>Logout</button></MenuLink>
+                                    ) :
+                                        (
+                                            <MenuLink to="/login">Login</MenuLink>
+                                        )
+                                }
+
+                            </li>
                         </ul>
                     </nav>
                 </div>
