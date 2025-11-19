@@ -1,5 +1,6 @@
 // Guarda la dirección base (URL) de la API en Django
-const BASE_URL = 'http://localhost:8001/api/habitacion/';
+const BASE_URL = 'https://hotelsanremoapi-production.up.railway.app/api/habitacion/';
+
 
 /**
  * Función genérica para hacer peticiones a la API

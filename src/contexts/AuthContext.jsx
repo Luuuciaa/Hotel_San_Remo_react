@@ -1,7 +1,8 @@
 
 import { createContext, useContext, useState, useCallback, useMemo } from "react";
 
-const AUTH_URL = 'http://127.0.0.1:8001/api/token/'; // URL de la API de autenticación
+const AUTH_URL = 'https://hotelsanremoapi-production.up.railway.app/api/token/';
+// URL de la API de autenticación
 
 // Creamos el contexto de autenticación
 export const AuthContext = createContext(null);
