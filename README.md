@@ -23,7 +23,9 @@ public/              # Recursos públicos accesibles por URL
 src/
  ├── assets/         # Recursos estáticos (íconos, imágenes internas)
  ├── components/     # Componentes reutilizables (Footer, Menu, Botones, etc.)
+ ├── contexts/            # Contextos globales (AuthContext)
  ├── data/           # Datos en formato JS (fotos, habitaciones, promociones)
+ ├── hooks/               # Hooks personalizados (useHabitaciones)
  ├── pages/          # Páginas principales del sitio (Inicio, Contacto, etc.)
  ├── App.jsx         # Componente raíz de la aplicación
  ├── index.css       # Estilos globales
@@ -44,35 +46,60 @@ vite.config.js       # Configuración de Vite
 
 -📜 JavaScript (ES6+)
 
+-🗂️ React Router (para navegación entre páginas)
+
+-🔐 Context API (para autenticación y estados globales)
+
 
 ## 🖼️ Páginas principales
 
-Inicio – Página principal.
+- Inicio — Presentación del hotel.
 
-Contacto – Formulario de contacto.
+- Habitaciones — Listado de habitaciones disponibles.
 
-Habitaciones – Listado de habitaciones.
+- Habitación Detalle — Información individual con foto y precio.
 
-Promociones – Ofertas disponibles.
+- Promociones — Ofertas y descuentos actuales.
 
-Servicios – Servicios del hotel.
+- Servicios — Servicios ofrecidos por el hotel.
 
-Ubicación – Dirección y mapa.
+- Contacto — Formulario para enviar consultas.
 
+- Ubicación — Dirección del hotel y mapa.
+
+- Panel Admin (HabitacionAdmin) — Gestión de habitaciones (CRUD).
+
+- Login / Logout — Acceso de administración mediante JWT.
+
+- NotFound — Página 404 personalizada.
 
 ## 🚀 Funcionalidades principales
 
+✔️ Navegación completa con React Router
 
-- Navegación entre páginas: Inicio, Contacto, Promociones, Habitaciones, Servicios y Ubicación.
+✔️ Diseño 100% responsive gracias a TailwindCSS
 
-- Visualización de habitaciones con fotos, descripciones y precios.
+✔️ Listado de habitaciones conectado a la API
 
-- Visualización de promociones disponibles.
+✔️ Vista detallada por habitación
 
-- Formulario de contacto para enviar consultas.
+✔️ CRUD de habitaciones (solo administración)
 
-- Footer con redes sociales enlazadas.
+✔️ Autenticación con JWT + Context API
 
-- Menú de navegación responsivo adaptado a dispositivos móviles.
+✔️ ProtectedRoute para proteger panel admin
 
-- Diseño moderno y responsive gracias a TailwindCSS.
+✔️ Formulario de contacto
+
+✔️ Sección de promociones y servicios
+
+✔️ Menú móvil responsivo
+
+✔️ Footer institucional con enlaces
+
+✔️ Datos cargados dinámicamente desde backend + archivos locales
+
+
+🚀 Deploy
+
+🔗 Deploy: https://hotelsanrem.netlify.app/
