@@ -11,11 +11,11 @@ export function Footer() {
       <ul className="space-y-2">
         <li className="flex items-center justify-center md:justify-start mb-5">
           <i className="bx bxl-instagram text-[#f8d479] text-2xl mr-3"></i>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-white ">hotelessanremo</a>
+          <a href="https://www.instagram.com/hotelessanremo?igsh=MTFsMDdobXprNWV1dA==" target="_blank" rel="noopener noreferrer" className="hover:underline text-white ">hotelessanremo</a>
         </li>
         <li className="flex items-center justify-center md:justify-start">
           <i className="bx bxl-facebook-circle text-[#f8d479] text-2xl mr-3"></i>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-white ">San RemoHoteles</a>
+          <a href="https://www.facebook.com/share/17isGa9vSj/" target="_blank" rel="noopener noreferrer" className="hover:underline text-white ">San RemoHoteles</a>
         </li>
       </ul>
     </section>
